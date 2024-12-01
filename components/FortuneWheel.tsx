@@ -64,6 +64,7 @@ export default function FortuneWheel({ logoUrl = '/placeholder.svg?height=50&wid
           perpendicularText={true}
           textDistance={85}
           fontSize={16}
+          spinDuration={0.2}
         />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-md">
           <Image
