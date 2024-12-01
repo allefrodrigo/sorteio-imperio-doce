@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import { Wheel } from 'react-custom-roulette'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import ReactConfetti from 'react-confetti'
+import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogAction } from './ui/alert-dialog'
 
 const prizes = [
   { option: 'R$ 5', style: { backgroundColor: '#FF6B6B', textColor: 'white' }, weight: 30 },
@@ -44,7 +46,16 @@ export default function FortuneWheel({ logoUrl = '/placeholder.svg?height=50&wid
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8 relative">
+      {result && (
+        <ReactConfetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          numberOfPieces={300}
+          recycle={false}
+        />
+      )}
+
       <div className="relative mb-8">
         <Wheel
           mustStartSpinning={mustSpin}
@@ -77,14 +88,40 @@ export default function FortuneWheel({ logoUrl = '/placeholder.svg?height=50&wid
       </div>
       
       {result && (
-        <p className="text-xl font-semibold text-center mb-4">{result}</p>
+        <AlertDialog>
+  <AlertDialogTrigger asChild>
+    <button className="hidden" id="alert-trigger"></button>
+  </AlertDialogTrigger>
+  <AlertDialogContent className="bg-green-100 border-green-400 text-green-800 shadow-lg ">
+    <AlertDialogHeader>
+      <AlertDialogTitle className="text-green-800 text-2xl flex items-center justify-center">
+        🎉 Parabéns! 🎉
+      </AlertDialogTitle>
+      <AlertDialogDescription className="text-lg text-center mt-2">
+        {result}
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogAction
+        className="bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md px-4 py-2"
+        onClick={() => setResult('')}
+      >
+        Fechar
+      </AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+
       )}
       
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg"
-        onClick={handleSpinClick}
+        onClick={() => {
+          handleSpinClick()
+          setTimeout(() => document.getElementById('alert-trigger')?.click(), 3000)
+        }}
         disabled={mustSpin}
       >
         {mustSpin ? 'Girando...' : 'Girar a Roda'}
