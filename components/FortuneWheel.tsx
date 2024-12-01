@@ -6,11 +6,11 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const prizes = [
-  { option: 'R$ 5', style: { backgroundColor: '#FF6B6B', textColor: 'white' }, weight: 20 },
+  { option: 'R$ 5', style: { backgroundColor: '#FF6B6B', textColor: 'white' }, weight: 30 },
   { option: 'R$ 10', style: { backgroundColor: '#4ECDC4', textColor: 'white' }, weight: 15 },
-  { option: 'R$ 20', style: { backgroundColor: '#45B7D1', textColor: 'white' }, weight: 10 },
-  { option: 'Crédito R$ 15', style: { backgroundColor: '#F7DC6F', textColor: 'black' }, weight: 40 },
-  { option: 'R$ 50', style: { backgroundColor: '#A569BD', textColor: 'white' }, weight: 5 },
+  { option: 'R$ 20', style: { backgroundColor: '#45B7D1', textColor: 'white' }, weight: 8 },
+  { option: 'Crédito R$ 15', style: { backgroundColor: '#F7DC6F', textColor: 'black' }, weight: 45 },
+  { option: 'R$ 50', style: { backgroundColor: '#A569BD', textColor: 'white' }, weight: 2 },
 ]
 
 interface FortuneWheelProps {
