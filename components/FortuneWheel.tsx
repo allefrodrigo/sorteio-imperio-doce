@@ -52,7 +52,7 @@ export default function FortuneWheel({ logoUrl = '/placeholder.svg?height=50&wid
           data={prizes}
           onStopSpinning={() => {
             setMustSpin(false)
-            setResult(`Parabéns! Você ganhou ${prizes[prizeIndex].option} em créditos!`)
+            setResult(`Parabéns! Você ganhou ${prizes[prizeIndex].option}`)
           }}
           outerBorderColor="#ccc"
           outerBorderWidth={10}
