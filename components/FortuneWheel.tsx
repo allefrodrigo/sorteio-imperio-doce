@@ -74,7 +74,7 @@ export default function FortuneWheel({ logoUrl = '/placeholder.svg?height=50&wid
           radiusLineWidth={2}
           perpendicularText={true}
           textDistance={85}
-          fontSize={16}
+          fontSize={18}
           spinDuration={0.2}
         />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-md">
@@ -89,29 +89,28 @@ export default function FortuneWheel({ logoUrl = '/placeholder.svg?height=50&wid
       
       {result && (
         <AlertDialog>
-  <AlertDialogTrigger asChild>
-    <button className="hidden" id="alert-trigger"></button>
-  </AlertDialogTrigger>
-  <AlertDialogContent className="bg-green-100 border-green-400 text-green-800 shadow-lg ">
-    <AlertDialogHeader>
-      <AlertDialogTitle className="text-green-800 text-2xl flex items-center justify-center">
-        🎉 Parabéns! 🎉
-      </AlertDialogTitle>
-      <AlertDialogDescription className="text-lg text-center mt-2">
-        {result}
-      </AlertDialogDescription>
-    </AlertDialogHeader>
-    <AlertDialogFooter>
-      <AlertDialogAction
-        className="bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md px-4 py-2"
-        onClick={() => setResult('')}
-      >
-        Fechar
-      </AlertDialogAction>
-    </AlertDialogFooter>
-  </AlertDialogContent>
-</AlertDialog>
-
+          <AlertDialogTrigger asChild>
+            <button className="hidden" id="alert-trigger"></button>
+          </AlertDialogTrigger>
+          <AlertDialogContent className="bg-green-100 border-green-400 text-green-800 shadow-lg p-6">
+            <AlertDialogHeader>
+              <AlertDialogTitle className="text-green-800 text-2xl flex items-center justify-center">
+                🎉 Parabéns! 🎉
+              </AlertDialogTitle>
+              <AlertDialogDescription className="text-lg text-center mt-2">
+                {result}
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogAction
+                className="bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md px-4 py-2"
+                onClick={() => setResult('')}
+              >
+                Fechar
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       )}
       
       <motion.button
@@ -126,6 +125,13 @@ export default function FortuneWheel({ logoUrl = '/placeholder.svg?height=50&wid
       >
         {mustSpin ? 'Girando...' : 'Girar a Roda'}
       </motion.button>
+
+      <footer className="absolute bottom-4 text-center text-gray-600">
+        Criado com <span className="text-red-500">❤️</span> por{' '}
+        <a href="https://allefschmidt.tech" target="_blank" rel="noopener noreferrer" className="text-gray-500 underline">
+          Allef Schmidt
+        </a>
+      </footer>
     </div>
   )
 }
