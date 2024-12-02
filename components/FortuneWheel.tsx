@@ -12,7 +12,7 @@ const prizes = [
   { option: 'R$ 20', style: { backgroundColor: '#45B7D1', textColor: 'white' }, weight: 3 },
   { option: 'R$ 10', style: { backgroundColor: '#4ECDC4', textColor: 'white' }, weight: 10 },
   { option: 'R$ 5', style: { backgroundColor: '#FF6B6B', textColor: 'white' }, weight: 35 },
-  { option: 'Crédito R$ 15', style: { backgroundColor: '#F7DC6F', textColor: 'black' }, weight: 51 },
+  { option: 'Crédito R$ 10', style: { backgroundColor: '#F7DC6F', textColor: 'black' }, weight: 51 },
 
 ]
 
